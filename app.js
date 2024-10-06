@@ -97,7 +97,122 @@ const getTeam = async () => {
     }
 }
 
+const getPlayers = async () => {
+    //preventing the page from resetting
+    event.preventDefault();
+    
+    const playerName = document.getElementById('playerName').value.toLowerCase();
+
+    const url = `https://api.balldontlie.io/v1/players/?search=${playerName}`;
+
+    try {
+        //fetching the info and storing in variable
+        const response = await fetch(url, {
+            headers: {
+                'Authorization': apiKey 
+            }
+        });
+
+        //check for error first
+        if(!response.ok){
+            throw new Error('Error');
+        }
+
+        //storing JSON in variable 
+        const data = await response.json();
+
+        const players = data.data;
+
+        const playerList = document.getElementById('player-list');
+
+        playerList.innerHTML = '';
+
+        players.forEach(players => {
+            //display the team names 
+        console.log(`First Name: ${players.first_name}`);
+
+        //make a new list eleamnet 
+        const newItem = document.createElement('li');
+        //assign team name to new list eleaments 
+        newItem.innerText = `${players.first_name} ${players.last_name} ID:${players.id}`;
+        //add new item to list 
+        playerList.appendChild(newItem);
+        })
+
+        
+    } catch(error) { //if any errors with catch them here
+        console.error('Error', error); //in case of error, log error 
+    }
+}
+
+const showPlayerForm = document.getElementById('get-player-btn');
+const playerContainer = document.getElementById('player-id-div');
+
+showPlayerForm.addEventListener('click', () => {
+    
+    if(!document.getElementById('player-id-form')){
+        const playerIdForm = document.createElement('form');
+        playerIdForm.setAttribute('id', 'player-id-form')
+        playerContainer.appendChild(playerIdForm)
+
+        const playerIdLabel = document.createElement('label');
+        playerIdLabel.setAttribute('id', 'player-id-label');
+        playerIdLabel.innerText = 'Enter Player ID ';
+        playerContainer.appendChild(playerIdLabel);
+
+        const playerIdInput = document.createElement('input');
+        playerIdInput.setAttribute('id', 'player-id-input');
+        playerIdInput.setAttribute('type', 'number');
+        playerContainer.appendChild(playerIdInput);
+
+        const playerIdButton = document.createElement('button');
+        playerIdButton.setAttribute('type', 'button');
+        playerIdButton.setAttribute('id', 'player-id-button');
+        playerIdButton.innerText = 'Player Info';
+        playerContainer.appendChild(playerIdButton);
+    
+        const playerPara = document.createElement('p');
+        playerContainer.appendChild(playerPara);
+        
+
+    playerIdButton.addEventListener('click', async () => {
+        const playerID = playerIdInput.value;
+    
+        const url = `https://api.balldontlie.io/v1/players/${playerID}`;
+    
+        try{
+             //fetching the info and storing in variable
+             const response = await fetch(url, {
+                headers: {
+                    'Authorization': apiKey 
+                }
+            });
+             //check for error first
+             if(!response.ok){
+                throw new Error('Error');
+            }
+            //storing JSON in variable 
+            const data = await response.json();
+    
+            console.log(data);
+
+            const player = data.data;
+            playerPara.innerText = `${player.college}`
+        }
+        catch(error) { //if any errors with catch them here
+            console.error('Error', error); //in case of error, log error 
+        }
+    }
+    )
+}
+});
+
+
+
+
+
 //make getTeam globally accessible
 window.getTeam = getTeam;
 // Make fetchTeams globally accessible
 window.fetchTeams = fetchTeams;
+window.getPlayers = getPlayers;

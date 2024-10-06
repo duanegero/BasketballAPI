@@ -14,11 +14,20 @@
     <div id="team-info-div">
         <form id="teamName-form">
             <label for="teamIDNumber" id="teamName-label">Enter a Team Number</label>
-            <input type="number" id="teamIDNumber">
+            <input type="number" id="teamIDNumber" required>
             <button id="get-team-btn" onclick="getTeam()">Find Team</button>
             <p id="team-info"></p>
         </form>
     </div>
+    <div id="player-info-div">
+        <form id="player-form">
+            <label for="playerName" id="playerName-label">Player Name</label>
+            <input type="text" id="playerName" required>
+            <button id="get-player-btn" onclick="getPlayers()">Find Players</button>
+            <ul id="player-list"></ul>
+        </form>
+    </div>
+    <div id="player-id-div"></div>
     <script src="./dist/bundle.js" type="module"></script>
 </body>
 </html>
