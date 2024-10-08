@@ -201,6 +201,8 @@ showPlayerForm.addEventListener('click', () => {
     
         //creating a new paragraph element to hold player info
         const playerPara = document.createElement('p');
+
+        playerPara.setAttribute('id', 'player-para')
         //adding new p element to the div
         playerContainer.appendChild(playerPara);
         

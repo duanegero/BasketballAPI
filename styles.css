@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
+
+body{
+    background-color: rgb(207, 207, 207);
+}
+
+#main-header{
+    text-align: center;
+    font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 50px;
+    color: seagreen;
+}
+
+#get-teams-btn {
+    background-color: white;
+    color: seagreen;
+    border-radius: 10em;
+    font-size: 17px;
+    font-weight: 500;
+    padding: 1em 2em;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border: 2px solid black;
+    box-shadow: 0 0 0 0 seagreen;
+    display: block;
+    margin: 0 auto;
+    font-family: "Roboto Slab", serif;
+    color: seagreen;
+
+}
+#get-teams-btn:hover {
+    transform: translateY(-4px) translateX(-2px);
+    box-shadow: 2px 5px 0 0 seagreen;
+}
+
+#get-teams-btn:active {
+    transform: translateY(2px) translateX(1px);
+    box-shadow: 0 0 0 0 black;
+}
+
+#team-list{
+    font-family: "Roboto Slab", serif;
+}
+
+#team-info-div {
+    text-align: center;
+}
+
+#teamName-label, #playerName-label, #player-id-label {
+    font-family: "Roboto Slab", serif;
+    text-align: center;
+    font-size: 21.5px;
+    color: seagreen;
+}
+
+#teamIDNumber {
+    width: 50px;
+    padding: 5.5px;
+    border: 2px solid black;
+    text-align: end;
+}
+
+#get-team-btn, #get-player-btn, #player-id-button {
+    background-color: white;
+    color: seagreen;
+    border-radius: 10em;
+    font-size: 17px;
+    font-weight: 500;
+    padding: 1em 2em;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border: 2px solid black;
+    box-shadow: 0 0 0 0 seagreen;
+    display: block;
+    margin: 0 auto;
+    font-family: "Roboto Slab", serif;
+    color: seagreen;
+}
+#get-team-btn:hover, #get-player-btn:hover, #player-id-button:hover {
+    transform: translateY(-4px) translateX(-2px);
+    box-shadow: 2px 5px 0 0 seagreen;
+}
+
+#get-team-btn:active, #get-player-btn:active, #player-id-button:active {
+    transform: translateY(2px) translateX(1px);
+    box-shadow: 0 0 0 0 black;
+}
+
+#team-info{
+    font-family: "Roboto Slab", serif;
+    font-size: large;
+    font-weight: 300;
+    color: seagreen;
+}
+
+#player-info-div {
+    text-align: center;
+}
+
+#playerName, #player-id-input {
+    margin: 4.5px;
+    text-align: end;
+    width: 135px;
+    padding: 6px;
+    font-family: "Roboto Slab", serif;
+    background-color: white;
+}
+
+#player-list, #player-para {
+    list-style-type: none;
+    font-family: "Roboto Slab", serif;
+}
+
+#player-id-div{
+    text-align: center;
+}
